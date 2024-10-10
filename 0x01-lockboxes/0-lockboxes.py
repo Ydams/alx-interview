@@ -1,5 +1,11 @@
 #!/usr/bin/python3
-def canUnlockAll(boxes):
+def can_unlock_all(boxes):
+    """
+    Determine if all boxes can be unlocked.
+
+    :param boxes: List of lists where each list contains keys to other boxes.
+    :return: True if all boxes can be unlocked, False otherwise.
+    """
     n = len(boxes)
     unlocked = [False] * n  # List to track unlocked boxes
     unlocked[0] = True  # The first box is unlocked
