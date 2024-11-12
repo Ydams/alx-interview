@@ -1,11 +1,8 @@
 #!/usr/bin/python3
-def canUnlockAll(boxes):
-    """
-    Determine if all boxes can be unlocked.
+"""Solution to Lockboxes problem"""
 
-    :param boxes: List of lists where each list contains keys to other boxes.
-    :return: True if all boxes can be unlocked, False otherwise.
-    """
+
+def canUnlockAll(boxes):
     """Determines if all the boxes can be opened"""
     if (type(boxes) is not list or len(boxes) == 0):
         return False
