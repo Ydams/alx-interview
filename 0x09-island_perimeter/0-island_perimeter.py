@@ -1,26 +1,29 @@
 #!/usr/bin/python3
+"""Island Perimeter"""
 def island_perimeter(grid):
-    """
-    This returns the perimeter of the island described in the grid.
-    :param grid: List of list of integers representing the grid
-    :return: Integer perimeter of the island
-    """
-    rows = len(grid)             # Number of rows in the grid
-    cols = len(grid[0])          # Number of columns in the grid
-    perimeter = 0                # Initialize the perimeter counter
-
-    # Iterate over each cell in the grid
-    for i in range(rows):
-        for j in range(cols):
-            if grid[i][j] == 1:  # If the cell is land
-                perimeter += 4   # Assume it contributes 4 edges
-
-                # Check the cell above (if not on the first row)
-                if i > 0 and grid[i - 1][j] == 1:
-                    perimeter -= 2  # Subtract 2 for the shared edge
-
-                # Check the cell to the left (if not in the first column)
-                if j > 0 and grid[i][j - 1] == 1:
-                    perimeter -= 2  # Subtract 2 for the shared edge
-
-    return perimeter
+    """returns the perimeter of the island described in grid"""
+    count = 0
+    for y in range(len(grid)):
+        for x in range(len(grid[y])):
+            if grid[y][x] == 1:
+                # look up
+                if y == 0:
+                    count += 1
+                elif grid[y-1][x] == 0:
+                    count += 1
+                # look down
+                if y == (len(grid) - 1):
+                    count += 1
+                elif grid[y+1][x] == 0:
+                    count += 1
+                # look left
+                if x == 0:
+                    count += 1
+                elif grid[y][x-1] == 0:
+                    count += 1
+                # look right
+                if x == (len(grid[y]) - 1):
+                    count += 1
+                elif grid[y][x+1] == 0:
+                    count += 1
+    return count
